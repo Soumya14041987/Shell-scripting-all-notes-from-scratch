@@ -1,0 +1,46 @@
+Sure, I can help you with that. Here are the step-by-step commands to install Minikube on an EC2 Ubuntu server:
+
+1. Install `kubectl` command line client for Minikube, which is used to interact with Kubernetes cluster:
+```bash
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+```
+
+2. Change permission of the binaries, and move to user folder:
+```bash
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
+
+3. Install Docker:
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+```
+
+4. Install Minikube:
+```bash
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube
+sudo mv minikube /usr/local/bin/
+```
+
+5. Become root, for missions:
+```bash
+sudo su
+```
+
+6. Start Minikube, with no VM args:
+```bash
+minikube start --vm-driver=none
+```
+
+That's it! You should now have Minikube installed on your EC2 Ubuntu server. Let me know if you have any other questions.
+
+Source: Conversation with Bing, 12/29/2023
+(1) Minikube Tutorials: Minikube Installation On EC2 - Devopsschool.com. https://www.devopsschool.com/blog/minikube-installation-on-ec2/.
+(2) Setup Minikube on AWS EC2 Instance - blog.kubekode.org. https://blog.kubekode.org/setup-minikube-on-aws-ec2-instance.
+(3) How to Install Minikube on Ubuntu? [A Complete Guide] - Kuberty.io. https://kuberty.io/blog/how-to-install-minikube-on-ubuntu/.
+(4) undefined. https://storage.googleapis.com/kubernetes-release/release/.
+(5) undefined. https://storage.googleapis.com/kubernetes-release/release/stable.txt.
+(6) undefined. https://get.docker.com.
+(7) undefined. https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64.
